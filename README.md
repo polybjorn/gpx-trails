@@ -2,6 +2,11 @@
 
 Single-page GPX route viewer with interactive maps, elevation profiles, and route stats.
 
+<p>
+  <img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="49%" alt="Route detail view">
+  <img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="49%" alt="Overview map">
+</p>
+
 ## Features
 
 - Route index grouped by region and country
