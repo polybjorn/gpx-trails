@@ -6,7 +6,7 @@ Single-page GPX route viewer with interactive maps, elevation profiles, and rout
 
 ## Features
 
-- Route index grouped by region and country
+- Route index grouped by region
 - Overview map with all routes
 - Per-route detail view with map, elevation profile, and stats (distance, gain, loss, peak, estimated time)
 - Multi-track GPX support with per-track colors, collapsible elevation charts, and track legend
