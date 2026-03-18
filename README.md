@@ -24,7 +24,7 @@ gpx/
 metadata.json                   # optional source URLs for routes
 gpx-manifest.sh                 # generates routes.json from gpx/ directory
 index.html                      # the app
-favicon.svg                     # mountain silhouette icon (custom, no attribution needed)
+favicon.svg                     # mountain silhouette icon
 ```
 
 ## Adding a route
