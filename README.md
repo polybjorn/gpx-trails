@@ -2,10 +2,7 @@
 
 Single-page GPX route viewer with interactive maps, elevation profiles, and route stats.
 
-<p>
-  <img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="49%" alt="Route detail view">
-  <img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="49%" alt="Overview map">
-</p>
+<p><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="38%" alt="Route detail view"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="38%" alt="Overview map"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773828074/Screen_Shot_2026-03-18_at_12.58.19_urgdx4.png" width="19.4%" alt="Mobile route list"></p>
 
 ## Features
 
@@ -15,7 +12,7 @@ Single-page GPX route viewer with interactive maps, elevation profiles, and rout
 - Multi-track GPX support with per-track colors, collapsible elevation charts, and track legend
 - Dual-track convention: `Route.gpx` (recorded) + `Route.planned.gpx` (planned reference) shown as dashed overlay
 - Completion status derived from file existence -no config needed
-- Dark theme, responsive layout
+- Dark theme, responsive design for desktop and mobile
 
 ## File structure
 
