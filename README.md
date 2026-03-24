@@ -1,4 +1,4 @@
-# GPX Trails
+# <img src="favicon.svg" width="28" alt="GPX Trails icon"> GPX Trails
 
 Lightweight GPX route viewer with interactive maps, elevation profiles, and route stats.
 
@@ -70,9 +70,7 @@ Tile providers:
 
 GPX files are excluded from this repository. To use this app, add your own GPX files to `gpx/Region/` and run `./gpx-manifest.sh`.
 
-## Privacy
-
-GPX files can contain PII -timestamps, device identifiers, and start/end coordinates that may reveal home locations. A pre-commit hook is included at `.git/hooks/pre-commit` that automatically strips `<time>`, `<author>`, and `creator` attributes from any staged `.gpx` files. Since git hooks don't transfer with clones, set it up manually after cloning:
+GPX files can contain PII (timestamps, device identifiers, and coordinates that may reveal home locations). A pre-commit hook is included that automatically strips `<time>`, `<author>`, and `creator` attributes from staged `.gpx` files. Set it up after cloning:
 
 ```sh
 cp hooks/pre-commit .git/hooks/pre-commit
