@@ -2,7 +2,7 @@
 
 Lightweight GPX route viewer with interactive maps, elevation profiles, and route stats.
 
-<p><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="38%" alt="Route detail view"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="38%" alt="Overview map"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/v1773828074/Screen_Shot_2026-03-18_at_12.58.19_urgdx4.png" width="19.4%" alt="Mobile route list"></p>
+<p><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="39.3%" alt="Route detail view"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773828074/Screen_Shot_2026-03-18_at_12.58.19_urgdx4.png" width="20.04%" alt="Mobile route list"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="39.3%" alt="Overview map"></p>
 
 ## Features
 
