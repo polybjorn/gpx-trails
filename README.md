@@ -78,5 +78,3 @@ Set it up after cloning:
 cp hooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
-
-Personal project built with [Claude Code](https://claude.ai/claude-code).
