@@ -70,13 +70,13 @@ Tile providers:
 
 GPX files are excluded from this repository. To use this app, add your own GPX files to `gpx/Region/` and run `./gpx-manifest.sh`.
 
-GPX files can contain PII (timestamps, device identifiers, and coordinates that may reveal home locations). A pre-commit hook is included that automatically strips `<time>`, `<author>`, and `creator` attributes from staged `.gpx` files. Set it up after cloning:
+GPX files can contain PII (timestamps, device identifiers, and coordinates that may reveal home locations). A pre-commit hook is included that automatically strips `<time>`, `<author>`, and `creator` attributes from staged `.gpx` files.
+
+Set it up after cloning:
 
 ```sh
 cp hooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
-
----
 
 Personal project built with [Claude Code](https://claude.ai/claude-code).
