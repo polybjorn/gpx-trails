@@ -83,9 +83,13 @@ for key, route in routes.items():
     if "source" in meta:
         route["source"] = meta["source"]
 
+REGION_NAMES = {
+    "Tyrkia": "Turkey",
+}
+
 regions = {}
 for route in routes.values():
-    rname = route["region"]
+    rname = REGION_NAMES.get(route["region"], route["region"])
     if rname not in regions:
         regions[rname] = {"name": rname, "routes": []}
 

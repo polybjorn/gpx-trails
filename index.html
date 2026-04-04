@@ -143,8 +143,9 @@
     }
     #app:has(#overview-map) {
       overflow: hidden;
-      padding: 0.5rem 1.5rem;
+      padding: 0;
       position: relative;
+      max-width: none;
     }
 
     .region-grid {
@@ -155,6 +156,10 @@
     .region-group {
       margin-bottom: 1.5rem;
       break-inside: avoid;
+    }
+
+    .region-group:only-child {
+      column-span: all;
     }
 
     @media (max-width: 600px) {
@@ -175,16 +180,9 @@
       gap: 0.5rem;
     }
 
-    .region-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
     .route-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 0.5rem;
     }
 
@@ -252,8 +250,8 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      padding: 0.5rem 1.5rem 0.5rem;
-      max-width: 1400px;
+      padding: 0;
+      max-width: none;
       margin: 0 auto;
       box-sizing: border-box;
     }
@@ -262,15 +260,13 @@
       width: 100%;
       flex: 1;
       min-height: 200px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
       background: var(--surface);
     }
 
     .elevation-wrap {
       margin-top: 0.5rem;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 0;
       overflow: hidden;
       background: var(--surface);
       flex-shrink: 0;
@@ -287,7 +283,7 @@
       padding: 0.4rem 0.75rem;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 0;
       margin-top: 0.5rem;
       font-size: 0.7rem;
       color: var(--muted);
@@ -315,7 +311,7 @@
       padding: 0.5rem 0.75rem;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 0;
       flex-shrink: 0;
     }
 
@@ -349,7 +345,7 @@
 
     .elevation-track-panel {
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 0;
       overflow: hidden;
       background: var(--surface);
     }
@@ -399,8 +395,6 @@
     #overview-map {
       width: 100%;
       height: 100%;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
       background: var(--surface);
       box-sizing: border-box;
     }
@@ -410,7 +404,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       position: absolute;
-      bottom: 1.5rem;
+      bottom: 5px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--surface);
@@ -445,6 +439,7 @@
     }
 
     /* Leaflet overrides for dark theme */
+    .leaflet-top .leaflet-control, .leaflet-bottom .leaflet-control { margin: 5px !important; }
     .leaflet-control-zoom a {
       background: var(--surface) !important;
       color: var(--text) !important;
@@ -459,6 +454,7 @@
       background: rgba(30, 34, 40, 0.85) !important;
       color: var(--muted) !important;
       font-size: 0.6rem !important;
+      border-radius: var(--radius) !important;
     }
 
     .leaflet-control-attribution a { color: var(--accent) !important; }
@@ -485,7 +481,8 @@
     .leaflet-popup-content { font-size: 0.8rem; font-weight: 300; }
     .leaflet-popup-content a { color: var(--accent); }
     .leaflet-interactive { filter: drop-shadow(0 0 3px rgba(0,0,0,0.5)); }
-    .leaflet-control-layers { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: var(--radius) !important; color: var(--text) !important; }
+    .leaflet-control-layers { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: var(--radius) !important; color: var(--text) !important; padding: 0 !important; }
+    .leaflet-control-layers-toggle { width: 36px !important; height: 36px !important; padding: 6px !important; background-size: 24px 24px !important; }
     .leaflet-control-layers label { color: var(--text); }
     .leaflet-control-layers-separator { border-color: var(--border) !important; }
     .marker-start, .marker-end { background: none !important; border: none !important; }
@@ -493,7 +490,7 @@
     @media (max-width: 900px) {
       #app { padding: 1rem 1rem 3rem; }
       .route-grid { grid-template-columns: 1fr; }
-      .detail-layout { padding: 0.5rem 0.75rem 0.5rem; }
+      .detail-layout { padding: 0; }
       nav { padding: 0.6rem 1rem; }
       .nav-route-info { gap: 0.4rem; flex-wrap: wrap; }
       .nav-group { gap: 0.4rem; }
@@ -623,7 +620,7 @@
         }),
         'Satellite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
           maxZoom: 19,
-          attribution: 'Tiles: <a href="https://www.esri.com">Esri</a>',
+          attribution: '<a href="https://www.esri.com">Esri</a>',
         }),
         'Dark': L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           maxZoom: 20, subdomains: 'abcd',
@@ -678,7 +675,6 @@
         const dotColor = ratio === 1 ? '#00e05a' : ratio === 0 ? '#ff6b6b' : '#ffbd2e';
         html += '<div class="region-group fade-in">';
         html += '<div class="region-label">';
-        html += '<span class="region-dot" style="background:' + dotColor + '"></span>';
         html += region.name;
         html += '<span class="route-count">(' + regionCompleted + '/' + region.routes.length + ')</span>';
         html += '</div>';
@@ -708,7 +704,13 @@
 
       app.innerHTML = '<div id="overview-map"></div><div class="overview-legend" id="legend"></div>';
 
-      const map = L.map('overview-map', { zoomControl: true }).setView([59.5, 6.5], 7);
+      const map = L.map('overview-map', {
+        zoomControl: true,
+        attributionControl: false,
+        maxBounds: [[-90, -200], [90, 200]],
+        maxBoundsViscosity: 1.0
+      }).setView([59.5, 6.5], 7);
+      L.control.attribution({ prefix: false }).addTo(map);
       state.currentMap = map;
       addTileLayersToMap(map);
 
@@ -795,7 +797,13 @@
       html += '</div>';
       app.innerHTML = html;
 
-      const map = L.map('map', { zoomControl: true }).setView([59.5, 6.5], 10);
+      const map = L.map('map', {
+        zoomControl: true,
+        attributionControl: false,
+        maxBounds: [[-90, -200], [90, 200]],
+        maxBoundsViscosity: 1.0
+      }).setView([59.5, 6.5], 10);
+      L.control.attribution({ prefix: false }).addTo(map);
       state.currentMap = map;
       addTileLayersToMap(map);
 
