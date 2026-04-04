@@ -1,16 +1,18 @@
-# GPX Trails
+# <img src="favicon.svg" width="28" alt="GPX Trails icon"> GPX Trails
 
-Single-page GPX route viewer with interactive maps, elevation profiles, and route stats.
+Lightweight GPX route viewer with interactive maps, elevation profiles, and route stats.
+
+<p><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773827117/Screenshot_2026-03-18_at_12.43.40_gl0qyi.png" width="39.3%" alt="Route detail view"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773828074/Screen_Shot_2026-03-18_at_12.58.19_urgdx4.png" width="20.04%" alt="Mobile route list"><img src="https://res.cloudinary.com/djpkffk5u/image/upload/c_scale,h_800/v1773827118/Screenshot_2026-03-18_at_12.44.17_w5xyts.png" width="39.3%" alt="Overview map"></p>
 
 ## Features
 
-- Route index grouped by region and country
+- Route index grouped by region
 - Overview map with all routes
 - Per-route detail view with map, elevation profile, and stats (distance, gain, loss, peak, estimated time)
 - Multi-track GPX support with per-track colors, collapsible elevation charts, and track legend
 - Dual-track convention: `Route.gpx` (recorded) + `Route.planned.gpx` (planned reference) shown as dashed overlay
 - Completion status derived from file existence -no config needed
-- Dark theme, responsive layout
+- Dark theme, responsive design for desktop and mobile
 
 ## File structure
 
@@ -22,7 +24,7 @@ gpx/
 metadata.json                   # optional source URLs for routes
 gpx-manifest.sh                 # generates routes.json from gpx/ directory
 index.html                      # the app
-favicon.svg                     # mountain silhouette icon (custom, no attribution needed)
+favicon.svg                     # mountain silhouette icon
 ```
 
 ## Adding a route
@@ -68,15 +70,15 @@ Tile providers:
 
 GPX files are excluded from this repository. To use this app, add your own GPX files to `gpx/Region/` and run `./gpx-manifest.sh`.
 
-## Privacy
+GPX files can contain PII (timestamps, device identifiers, and coordinates that may reveal home locations). A pre-commit hook is included that automatically strips `<time>`, `<author>`, and `creator` attributes from staged `.gpx` files.
 
-GPX files can contain PII -timestamps, device identifiers, and start/end coordinates that may reveal home locations. A pre-commit hook is included at `.git/hooks/pre-commit` that automatically strips `<time>`, `<author>`, and `creator` attributes from any staged `.gpx` files. Since git hooks don't transfer with clones, set it up manually after cloning:
+Set it up after cloning:
 
 ```sh
 cp hooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
 
----
+## See also
 
-Personal project built with [Claude Code](https://claude.ai/claude-code).
+- [Pinpoints](https://github.com/polybjorn/pinpoints) - interactive map for plotting and browsing travel destinations
